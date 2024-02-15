@@ -32,5 +32,12 @@ export class UserService {
     getAllUsers = () => {
         return this.db
     }
+
+    deleteUser = (name: string, email:string) => {
+        const index = this.db.findIndex((pessoa) => pessoa.name === name && pessoa.email === email);
+        if (index !== -1) {
+            this.db.splice(index, 1);
+        }        
+    }
 }
 
